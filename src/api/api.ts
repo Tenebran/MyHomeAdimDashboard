@@ -54,6 +54,8 @@ export type profileType = {
   name: string;
   profession: string;
   surname: string;
+  aboutme: string;
+  video: string;
 };
 
 export type adressType = {

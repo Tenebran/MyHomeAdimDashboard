@@ -8,6 +8,8 @@ export type ProfileType = {
   surname: string;
   profession: string;
   image: string;
+  aboutme: string;
+  video: string;
 };
 
 export type ActionTypeProfile = ReturnType<typeof profileDataAC>;
@@ -17,6 +19,8 @@ const initialState: ProfileType = {
   surname: '',
   profession: '',
   image: '',
+  aboutme: '',
+  video: '',
 };
 
 export const profileReducers = (
@@ -31,6 +35,8 @@ export const profileReducers = (
         surname: action.surname,
         profession: action.profession,
         image: action.image,
+        aboutme: action.aboutme,
+        video: action.video,
       };
 
     default:
@@ -38,14 +44,30 @@ export const profileReducers = (
   }
 };
 
-const profileDataAC = (name: string, surname: string, profession: string, image: string) => {
-  return { type: 'PROFILE/GET_DATA', name, surname, profession, image } as const;
+const profileDataAC = (
+  name: string,
+  surname: string,
+  profession: string,
+  image: string,
+  video: string,
+  aboutme: string
+) => {
+  return { type: 'PROFILE/GET_DATA', name, surname, profession, image, video, aboutme } as const;
 };
 
-export const getProfileDataTC = () => (dispatch: Dispatch) => {
+export const getProfileDataTC = (): any => (dispatch: Dispatch) => {
   return getProfile.profile().then(res => {
     const profile = res.data[0];
 
-    dispatch(profileDataAC(profile.name, profile.surname, profile.profession, profile.image));
+    dispatch(
+      profileDataAC(
+        profile.name,
+        profile.surname,
+        profile.profession,
+        profile.image,
+        profile.video,
+        profile.aboutme
+      )
+    );
   });
 };
