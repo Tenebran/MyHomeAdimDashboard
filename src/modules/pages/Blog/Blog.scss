@@ -1,0 +1,31 @@
+.blog {
+  width: 100%;
+  &__image {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  &__paper {
+    padding: 15px;
+  }
+
+  &__title {
+    font-size: 18px;
+    color: rgb(247, 27, 27);
+  }
+
+  &__button {
+    &_edit {
+      margin: 10px 0 0 0;
+    }
+  }
+
+  &__editplace {
+    margin: 10px 0;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

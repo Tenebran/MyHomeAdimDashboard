@@ -26,10 +26,23 @@ export const getBlog = {
   blog() {
     return instance.get<Array<BlogType>>('/blog');
   },
-  updateBlog() {
-    return instance.put('/blog/1/', {
-      title: 'Very Very New Title',
-      image: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
+  updateBlog(id: string, title: string, image: string, subtitle: string) {
+    return instance.put(`/blog/${id}/`, {
+      title: title,
+      image: image,
+      subtitle: subtitle,
+    });
+  },
+
+  deleteBlog(id: string) {
+    return instance.delete(`/blog/${id}`);
+  },
+
+  addBlog(title: string, image: string, subtitle: string) {
+    return instance.post(`/blog/`, {
+      title: title,
+      image: image,
+      subtitle: subtitle,
     });
   },
 };

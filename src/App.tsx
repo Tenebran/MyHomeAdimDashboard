@@ -6,7 +6,7 @@ import { Blog } from './modules/pages/Blog/Blog';
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       <Blog />
     </div>
   );

@@ -19,12 +19,29 @@ export const getBlogAC = (blog: Array<BlogType>) => {
   return { type: 'BLOG/GET_BLOG', blog } as const;
 };
 
-export const getBlogTC = () => (dispatch: Dispatch) => {
+export const getBlogTC = (): any => (dispatch: Dispatch) => {
   getBlog.blog().then(res => {
     dispatch(getBlogAC(res.data));
   });
 };
 
+export const updateBlogTC =
+  (id: string, title: string, image: string, subtitle: string) => (dispatch: Dispatch) => {
+    getBlog.updateBlog(id, title, image, subtitle).then(res => {
+      dispatch(getBlogTC());
+    });
+  };
+
+export const deleteBlogTC = (id: string) => (dispatch: Dispatch) => {
+  getBlog.deleteBlog(id).then(res => dispatch(getBlogTC()));
+};
+
+export const addBlogTC =
+  (title: string, image: string, subtitle: string) => (dispatch: Dispatch) => {
+    getBlog.addBlog(title, image, subtitle).then(res => {
+      dispatch(getBlogTC());
+    });
+  };
 export type BlogInitialStateType = typeof initialState;
 
 export type BlogType = {
