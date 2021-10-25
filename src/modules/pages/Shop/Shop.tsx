@@ -1,5 +1,10 @@
 import React from 'react';
+import { Header } from '../../components/Header';
 
 export const Shop = () => {
-  return <div></div>;
+  return (
+    <>
+      <Header type="shop" />
+    </>
+  );
 };
