@@ -8,11 +8,17 @@ export const getProfile = {
   profile() {
     return instance.get<Array<profileType>>('/profil');
   },
+  updateProfil(name: string, surname: string, aboutme: string, video: string, profession: string) {
+    return instance.put('/profil/1/', { name, surname, aboutme, video, profession });
+  },
 };
 
 export const getAdress = {
   adress() {
     return instance.get<Array<adressType>>('/adress');
+  },
+  updateAdress(name: string, street: string, city: string, mobile: string, email: string) {
+    return instance.put('/adress/1/', { name, street, city, mobile, email });
   },
 };
 

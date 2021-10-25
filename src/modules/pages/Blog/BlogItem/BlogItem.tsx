@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import React, { useState } from 'react';
-import { blogReducer, BlogType } from '../../../../store/blog-reducers';
+import { BlogType } from '../../../../store/blog-reducers';
 import SaveIcon from '@mui/icons-material/Save';
 import LoadingButton from '@mui/lab/LoadingButton';
 import BlogPopUp from '../../../components/BlogPopUp/BlogPopUp';

@@ -8,33 +8,70 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import SaveIcon from '@mui/icons-material/Save';
 import { AppRootStateType } from '../../../store/store';
-import { getProfileDataTC, ProfileType } from '../../../store/profile-reducers';
+import { getProfileDataTC, ProfileType, updateProfileTC } from '../../../store/profile-reducers';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Profile = () => {
   const [edit, setedit] = useState<boolean>(false);
   const profile = useSelector<AppRootStateType, ProfileType>(state => state.profile);
+  const [name, setName] = useState<string>(profile.name);
+  const [surname, setSurname] = useState<string>(profile.surname);
+  const [aboutMe, setAboutMe] = useState<string>(profile.aboutme);
+  const [video, setvideo] = useState<string>(profile.video);
+  const [profession, setProfession] = useState(profile.profession);
+
   const dispatch = useDispatch();
+
+  const nameHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const surnameHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSurname(event.target.value);
+  };
+  const aboutMeHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAboutMe(event.target.value);
+  };
+  const videoHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setvideo(event.target.value);
+  };
+  const professionHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setProfession(event.target.value);
+  };
 
   useEffect(() => {
     dispatch(getProfileDataTC());
-  }, []);
+  }, [dispatch]);
 
-  console.log(profile);
   const openEditHandler = () => {
     if (!edit) {
       setedit(true);
+      setName(profile.name);
+      setSurname(profile.surname);
+      setAboutMe(profile.aboutme);
+      setvideo(profile.video);
+      setProfession(profile.profession);
     } else {
       setedit(false);
     }
   };
+
+  const onUpdateHandler = () => {
+    dispatch(updateProfileTC(name, surname, aboutMe, video, profession));
+    setedit(false);
+  };
+
   return (
     <>
       <Header type={'profile'} />
 
       <Grid item className="blog">
         <Paper elevation={5} className="blog__paper">
-          <img src={profile.image} className="blog__image" />
+          <img src={profile.image} className="blog__image" />{' '}
+          <div>
+            <span className="blog__title">Live String: </span>
+            {profile.profession}
+          </div>
           <div>
             <span className="blog__title">Name: </span>
             {profile.name}
@@ -67,7 +104,6 @@ export const Profile = () => {
               </span>
             </div>
           </div>
-
           <div className="blog__button_edit">
             {!edit ? (
               <div className="blog__button-wrapper">
@@ -84,30 +120,48 @@ export const Profile = () => {
                 <div className="blog__editplace">
                   <TextField
                     id="standard-basic"
-                    label="image"
+                    label="Live String"
                     variant="filled"
-                    // value={image}
+                    value={profession}
                     multiline
                     fullWidth
-                    // onChange={imageHandleChange}
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="title"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    // value={title}
-                    // onChange={titleHandleChange}
+                    onChange={professionHandleChange}
                   />
                   <TextField
                     id="standard-basic"
-                    label="subtitle"
+                    label="name"
+                    variant="filled"
+                    value={name}
+                    multiline
+                    fullWidth
+                    onChange={nameHandleChange}
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="surname"
                     variant="filled"
                     multiline
                     fullWidth
-                    // value={subtitle}
-                    // onChange={subTitleHandleChange}
+                    value={surname}
+                    onChange={surnameHandleChange}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    label="aboutMe"
+                    variant="filled"
+                    multiline
+                    fullWidth
+                    value={aboutMe}
+                    onChange={aboutMeHandleChange}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    label="video"
+                    variant="filled"
+                    multiline
+                    fullWidth
+                    value={video}
+                    onChange={videoHandleChange}
                   />
                 </div>
                 <div className="blog__button-wrapper">
@@ -116,8 +170,7 @@ export const Profile = () => {
                   </Button>
                   <LoadingButton
                     color="secondary"
-                    // onClick={onUpdateHandler}
-                    //   loading={loading}
+                    onClick={onUpdateHandler}
                     loadingPosition="start"
                     startIcon={<SaveIcon />}
                     variant="contained"

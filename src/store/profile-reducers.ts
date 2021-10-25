@@ -3,17 +3,6 @@ import { Dispatch } from 'redux';
 import { getProfile } from '../api/api';
 import { profile } from 'console';
 
-export type ProfileType = {
-  name: string;
-  surname: string;
-  profession: string;
-  image: string;
-  aboutme: string;
-  video: string;
-};
-
-export type ActionTypeProfile = ReturnType<typeof profileDataAC>;
-
 const initialState: ProfileType = {
   name: '',
   surname: '',
@@ -71,3 +60,22 @@ export const getProfileDataTC = (): any => (dispatch: Dispatch) => {
     );
   });
 };
+
+export const updateProfileTC =
+  (name: string, surname: string, aboutme: string, video: string, profession: string) =>
+  (dispatch: Dispatch) => {
+    getProfile.updateProfil(name, surname, aboutme, video, profession).then(res => {
+      dispatch(getProfileDataTC());
+    });
+  };
+
+export type ProfileType = {
+  name: string;
+  surname: string;
+  profession: string;
+  image: string;
+  aboutme: string;
+  video: string;
+};
+
+export type ActionTypeProfile = ReturnType<typeof profileDataAC>;

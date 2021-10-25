@@ -30,14 +30,20 @@ export const getFooterAC = (
   return { type: 'FOOTER/GET-FOOTER', name, street, city, mobile, email } as const;
 };
 
-export const getFooterTC = () => (dispatch: Dispatch) => {
-  {
-    getAdress.adress().then(res => {
-      const adress = res.data[0];
-      dispatch(getFooterAC(adress.name, adress.street, adress.city, adress.mobile, adress.email));
-    });
-  }
+export const getFooterTC = (): any => (dispatch: Dispatch) => {
+  getAdress.adress().then(res => {
+    const adress = res.data[0];
+    dispatch(getFooterAC(adress.name, adress.street, adress.city, adress.mobile, adress.email));
+  });
 };
+
+export const updateAdress =
+  (name: string, street: string, city: string, mobile: string, email: string) =>
+  (dispatch: Dispatch) => {
+    getAdress.updateAdress(name, street, city, mobile, email).then(res => {
+      dispatch(getFooterTC());
+    });
+  };
 
 export type ActionType = ReturnType<typeof getFooterAC>;
 
