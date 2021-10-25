@@ -17,6 +17,10 @@ export default function AlertDialog(props: PopUpPropsType) {
     props.setOpen(false);
   };
 
+  const handleOnlyClose = () => {
+    props.setOpen(false);
+  };
+
   return (
     <div>
       <Dialog
@@ -33,7 +37,7 @@ export default function AlertDialog(props: PopUpPropsType) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleOnlyClose}>Disagree</Button>
           <Button onClick={handleClose} autoFocus>
             Agree
           </Button>

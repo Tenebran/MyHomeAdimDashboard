@@ -108,7 +108,9 @@ export const Blog = () => {
                   loadingPosition="start"
                   startIcon={<SaveIcon />}
                   variant="contained"
-                ></LoadingButton>
+                >
+                  Save
+                </LoadingButton>
               </div>
             </Paper>
           </Grid>

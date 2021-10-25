@@ -110,7 +110,6 @@ export const BlogItem = (props: BlogItemProps) => {
                 <LoadingButton
                   color="secondary"
                   onClick={onUpdateHandler}
-                  //   loading={loading}
                   loadingPosition="start"
                   startIcon={<SaveIcon />}
                   variant="contained"
