@@ -19,11 +19,32 @@ export const getShopsAC = (shop: Array<ShopType>) => {
   return { type: 'SHOP/GET_SHOP', shop } as const;
 };
 
-export const getShopTC = () => (dispatch: Dispatch) => {
+export const getShopTC = (): any => (dispatch: Dispatch) => {
   getShop.shop().then(res => {
     dispatch(getShopsAC(res.data));
   });
 };
+
+export const updateShopTC =
+  (id: string, title: string, price: string, image: string, subtitle: string) =>
+  (dispatch: Dispatch) => {
+    getShop.updateShop(id, title, price, image, subtitle).then(res => {
+      dispatch(getShopTC());
+    });
+  };
+
+export const deleteShopTC = (id: string) => (dispatch: Dispatch) => {
+  getShop.deleteShop(id).then(res => {
+    dispatch(getShopTC());
+  });
+};
+
+export const addShopTC =
+  (title: string, price: string, image: string, subtitle: string) => (dispatch: Dispatch) => {
+    getShop.addShop(title, price, image, subtitle).then(res => {
+      dispatch(getShopTC());
+    });
+  };
 
 type ActionType = ReturnType<typeof getShopsAC>;
 

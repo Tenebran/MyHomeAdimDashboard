@@ -33,6 +33,16 @@ export const getShop = {
   shop() {
     return instance.get<Array<ShopType>>('shop');
   },
+  addShop(title: string, price: string, image: string, subtitle: string) {
+    return instance.post('/shop/', { title, price, image, subtitle });
+  },
+  deleteShop(id: string) {
+    return instance.delete(`/shop/${id}`);
+  },
+
+  updateShop(id: string, title: string, price: string, image: string, subtitle: string) {
+    return instance.put(`/shop/${id}`, { title, price, image, subtitle });
+  },
 };
 
 export const getBlog = {
