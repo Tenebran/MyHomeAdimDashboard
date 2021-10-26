@@ -62,9 +62,16 @@ export const getProfileDataTC = (): any => (dispatch: Dispatch) => {
 };
 
 export const updateProfileTC =
-  (name: string, surname: string, aboutme: string, video: string, profession: string) =>
+  (
+    name: string,
+    surname: string,
+    aboutme: string,
+    video: string,
+    profession: string,
+    image: string
+  ) =>
   (dispatch: Dispatch) => {
-    getProfile.updateProfil(name, surname, aboutme, video, profession).then(res => {
+    getProfile.updateProfil(name, surname, aboutme, video, profession, image).then(res => {
       dispatch(getProfileDataTC());
     });
   };

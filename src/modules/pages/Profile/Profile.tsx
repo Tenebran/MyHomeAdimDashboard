@@ -19,8 +19,12 @@ export const Profile = () => {
   const [aboutMe, setAboutMe] = useState<string>(profile.aboutme);
   const [video, setvideo] = useState<string>(profile.video);
   const [profession, setProfession] = useState(profile.profession);
+  const [image, setImage] = useState<string>(profile.image);
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProfileDataTC());
+  }, [dispatch]);
 
   const nameHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -39,9 +43,9 @@ export const Profile = () => {
     setProfession(event.target.value);
   };
 
-  useEffect(() => {
-    dispatch(getProfileDataTC());
-  }, [dispatch]);
+  const imageHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setImage(event.target.value);
+  };
 
   const openEditHandler = () => {
     if (!edit) {
@@ -51,13 +55,14 @@ export const Profile = () => {
       setAboutMe(profile.aboutme);
       setvideo(profile.video);
       setProfession(profile.profession);
+      setImage(profile.image);
     } else {
       setedit(false);
     }
   };
 
   const onUpdateHandler = () => {
-    dispatch(updateProfileTC(name, surname, aboutMe, video, profession));
+    dispatch(updateProfileTC(name, surname, aboutMe, video, profession, image));
     setedit(false);
   };
 
@@ -67,7 +72,7 @@ export const Profile = () => {
 
       <Grid item className="blog">
         <Paper elevation={5} className="blog__paper">
-          <img src={profile.image} className="blog__image" />{' '}
+          <img src={profile.image} className="blog__image" />
           <div>
             <span className="blog__title">Live String: </span>
             {profile.profession}
@@ -120,12 +125,12 @@ export const Profile = () => {
                 <div className="blog__editplace">
                   <TextField
                     id="standard-basic"
-                    label="Live String"
+                    label="image"
                     variant="filled"
-                    value={profession}
+                    value={image}
                     multiline
                     fullWidth
-                    onChange={professionHandleChange}
+                    onChange={imageHandleChange}
                   />
                   <TextField
                     id="standard-basic"

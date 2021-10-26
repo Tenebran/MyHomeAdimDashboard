@@ -8,8 +8,15 @@ export const getProfile = {
   profile() {
     return instance.get<Array<profileType>>('/profil');
   },
-  updateProfil(name: string, surname: string, aboutme: string, video: string, profession: string) {
-    return instance.put('/profil/1/', { name, surname, aboutme, video, profession });
+  updateProfil(
+    name: string,
+    surname: string,
+    aboutme: string,
+    video: string,
+    profession: string,
+    image: string
+  ) {
+    return instance.put('/profil/1/', { name, surname, aboutme, video, profession, image });
   },
 };
 
