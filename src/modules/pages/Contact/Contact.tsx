@@ -62,7 +62,7 @@ export const Contact = () => {
 
   return (
     <>
-      <Header type={'profile'} />
+      <Header type={'contact'} />
 
       <Grid item className="blog">
         <Paper elevation={5} className="blog__paper">

@@ -70,8 +70,8 @@ export const Profile = () => {
     <>
       <Header type={'profile'} />
 
-      <Grid item className="blog">
-        <Paper elevation={5} className="blog__paper">
+      <Grid item className="blog" style={{ zIndex: 2000 }}>
+        <Paper elevation={5} className="blog__paper" style={{ zIndex: 2000 }}>
           <img src={profile.image} className="blog__image" />
           <div>
             <span className="blog__title">Live String: </span>
@@ -98,6 +98,7 @@ export const Profile = () => {
               <span>
                 <span className="blog__title">Video: </span>
                 <iframe
+                  style={{ zIndex: 2000 }}
                   width="300"
                   height="220"
                   src={profile.video}
