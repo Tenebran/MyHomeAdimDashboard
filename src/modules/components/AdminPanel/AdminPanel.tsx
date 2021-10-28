@@ -12,9 +12,12 @@ export const AdminPanel = (props: AdminPanelPropsType) => {
   };
 
   const onClickPasswordLogin = () => {
-    console.log('Hier');
-    console.log(inputPassword);
-    props.onClickPasswordLogin(inputPassword);
+    if (props.password === inputPassword) {
+      props.onClickPasswordLogin(inputPassword);
+    } else {
+      setError(true);
+      setInputPassword('');
+    }
   };
 
   return (
@@ -31,8 +34,14 @@ export const AdminPanel = (props: AdminPanelPropsType) => {
               variant="outlined"
               type="password"
               onChange={passwordHandleChange}
+              value={inputPassword}
             />
           </div>
+          {error ? (
+            <div className="AdminPanel__error">incorrect password</div>
+          ) : (
+            <div className="AdminPanel__error"></div>
+          )}
           <div>
             <Button variant="contained" color="primary" onClick={onClickPasswordLogin}>
               Login
