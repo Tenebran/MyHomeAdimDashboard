@@ -18,7 +18,8 @@ export const Contact = () => {
   const [street, setStreet] = useState<string>('');
   const [city, setCity] = useState<string>('');
   const [mobile, setMobile] = useState<string>('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [paypalme, setPaypalme] = useState<string>('');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -42,6 +43,10 @@ export const Contact = () => {
     setEmail(event.target.value);
   };
 
+  const paypalmeHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPaypalme(event.target.value);
+  };
+
   const openEditHandler = () => {
     if (!edit) {
       setedit(true);
@@ -50,13 +55,14 @@ export const Contact = () => {
       setCity(contact.city);
       setMobile(contact.mobile);
       setEmail(contact.email);
+      setPaypalme(contact.paypalme);
     } else {
       setedit(false);
     }
   };
 
   const onUpdateHandler = () => {
-    dispatch(updateAdress(name, street, city, mobile, email));
+    dispatch(updateAdress(name, street, city, mobile, email, paypalme));
     setedit(false);
   };
 
@@ -87,6 +93,12 @@ export const Contact = () => {
               <span>
                 <span className="blog__title">Email: </span>
                 {contact.email}
+              </span>
+            </div>
+            <div className="wrapper__info">
+              <span>
+                <span className="blog__title">PayPalMe: </span>
+                {contact.paypalme}
               </span>
             </div>
           </div>
@@ -148,6 +160,15 @@ export const Contact = () => {
                     fullWidth
                     value={email}
                     onChange={emailHandleChange}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    label="PayPalMe"
+                    variant="filled"
+                    multiline
+                    fullWidth
+                    value={paypalme}
+                    onChange={paypalmeHandleChange}
                   />
                 </div>
                 <div className="blog__button-wrapper">

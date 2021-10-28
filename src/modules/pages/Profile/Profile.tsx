@@ -10,6 +10,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import { AppRootStateType } from '../../../store/store';
 import { getProfileDataTC, ProfileType, updateProfileTC } from '../../../store/profile-reducers';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactPlayer from 'react-player';
 
 export const Profile = () => {
   const [edit, setedit] = useState<boolean>(false);
@@ -97,16 +98,9 @@ export const Profile = () => {
             <div className="wrapper__info">
               <span>
                 <span className="blog__title">Video: </span>
-                <iframe
-                  style={{ zIndex: 2000 }}
-                  width="300"
-                  height="220"
-                  src={profile.video}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <div className="blog__video-wrapper">
+                  <ReactPlayer url={profile.video} />
+                </div>
               </span>
             </div>
           </div>

@@ -24,8 +24,15 @@ export const getAdress = {
   adress() {
     return instance.get<Array<adressType>>('/adress');
   },
-  updateAdress(name: string, street: string, city: string, mobile: string, email: string) {
-    return instance.put('/adress/1/', { name, street, city, mobile, email });
+  updateAdress(
+    name: string,
+    street: string,
+    city: string,
+    mobile: string,
+    email: string,
+    paypalme: string
+  ) {
+    return instance.put('/adress/1/', { name, street, city, mobile, email, paypalme });
   },
 };
 
@@ -89,6 +96,7 @@ export type adressType = {
   id: string;
   mobile: string;
   email: string;
+  paypalme: string;
 };
 
 export type ShopType = {
