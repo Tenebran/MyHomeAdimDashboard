@@ -1,0 +1,23 @@
+.manual {
+  height: 80vh;
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    transition: 1s;
+
+    &:hover {
+      color: #fd4343;
+    }
+  }
+
+  &__typography {
+    margin: 20px 0 !important;
+  }
+
+  &__paper {
+    background-color: #3f51b5 !important;
+  }
+}

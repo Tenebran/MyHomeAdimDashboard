@@ -24,6 +24,7 @@ export const Shop = () => {
   const [subtitle, setsubtitle] = useState<string>('');
   const [image, setimage] = useState<string>('');
   const [price, setprice] = useState<string>('');
+  const [unit, setUnit] = useState('');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -44,6 +45,9 @@ export const Shop = () => {
   const priceHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setprice(event.target.value);
   };
+  const unitHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUnit(event.target.value);
+  };
 
   const addBlogCancel = () => {
     setimage('');
@@ -52,11 +56,12 @@ export const Shop = () => {
   };
 
   const oncklickAddShopkHandler = () => {
-    dispatch(addShopTC(title, price, image, subtitle));
+    dispatch(addShopTC(title, price, image, subtitle, unit));
     setimage('');
     settitle('');
     setsubtitle('');
     setprice('');
+    setUnit('');
   };
 
   const updateShopHandler = (
@@ -64,9 +69,10 @@ export const Shop = () => {
     title: string,
     price: string,
     image: string,
-    subtitle: string
+    subtitle: string,
+    unit: string
   ) => {
-    dispatch(updateShopTC(id, title, price, image, subtitle));
+    dispatch(updateShopTC(id, title, price, image, subtitle, unit));
   };
 
   const deleteShopHandler = (id: string) => {
@@ -117,6 +123,15 @@ export const Shop = () => {
                     fullWidth
                     value={price}
                     onChange={priceHandleChange}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    label="unit"
+                    variant="filled"
+                    multiline
+                    fullWidth
+                    value={unit}
+                    onChange={unitHandleChange}
                   />
                 </div>
                 <div className="blog__button-wrapper">

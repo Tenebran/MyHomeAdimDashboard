@@ -14,6 +14,18 @@ export const Header = (props: HeaderPropsType) => {
         <Toolbar className="header__container">
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link
+              to={PATH.MANUAL}
+              className={props.type === 'manual' ? 'header__link_active' : 'header__link'}
+            >
+              Manual
+            </Link>
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <AppBar position="fixed" className="header__container2">
+        <Toolbar className="header__container2">
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link
               to={PATH.MAIN}
               className={props.type === 'profile' ? 'header__link_active' : 'header__link'}
             >

@@ -14,6 +14,7 @@ export const ShopItem = (props: BlogItemProps) => {
   const [price, setprice] = useState<string>(props.shop.price);
   const [subtitle, setsubtitle] = useState<string>(props.shop.subtitle);
   const [image, setimage] = useState<string>(props.shop.image);
+  const [unit, setUnit] = useState(props.shop.unit);
   const [popupOpen, setPopupOpen] = useState<boolean>(false);
 
   const openEditHandler = () => {
@@ -39,8 +40,12 @@ export const ShopItem = (props: BlogItemProps) => {
     setprice(event.target.value);
   };
 
+  const unitHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUnit(event.target.value);
+  };
+
   const onUpdateHandler = () => {
-    props.updateShopHandler(props.shop.id, title, price, image, subtitle);
+    props.updateShopHandler(props.shop.id, title, price, image, subtitle, unit);
     setedit(false);
   };
   return (
@@ -65,6 +70,11 @@ export const ShopItem = (props: BlogItemProps) => {
         <div>
           <span>
             <span className="blog__title">Price:</span> {props.shop.price}
+          </span>
+        </div>
+        <div>
+          <span>
+            <span className="blog__title">Per Unit:</span> {props.shop.unit}
           </span>
         </div>
         <div className="blog__button_edit">
@@ -120,6 +130,15 @@ export const ShopItem = (props: BlogItemProps) => {
                   value={subtitle}
                   onChange={subTitleHandleChange}
                 />
+                <TextField
+                  id="standard-basic"
+                  label="unit"
+                  variant="filled"
+                  multiline
+                  fullWidth
+                  value={unit}
+                  onChange={unitHandleChange}
+                />
               </div>
               <div className="blog__button-wrapper">
                 <Button variant="contained" color="secondary" onClick={openEditHandler}>
@@ -152,7 +171,8 @@ type BlogItemProps = {
     title: string,
     price: string,
     image: string,
-    subtitle: string
+    subtitle: string,
+    unit: string
   ) => void;
   deleteShopHandler: (id: string) => void;
 };

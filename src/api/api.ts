@@ -40,15 +40,22 @@ export const getShop = {
   shop() {
     return instance.get<Array<ShopType>>('shop');
   },
-  addShop(title: string, price: string, image: string, subtitle: string) {
-    return instance.post('/shop/', { title, price, image, subtitle });
+  addShop(title: string, price: string, image: string, subtitle: string, unit: string) {
+    return instance.post('/shop/', { title, price, image, subtitle, unit });
   },
   deleteShop(id: string) {
     return instance.delete(`/shop/${id}`);
   },
 
-  updateShop(id: string, title: string, price: string, image: string, subtitle: string) {
-    return instance.put(`/shop/${id}`, { title, price, image, subtitle });
+  updateShop(
+    id: string,
+    title: string,
+    price: string,
+    image: string,
+    subtitle: string,
+    unit: string
+  ) {
+    return instance.put(`/shop/${id}`, { title, price, image, subtitle, unit });
   },
 };
 
@@ -108,6 +115,7 @@ export type ShopType = {
   image: string;
   subtitle: string;
   id: string;
+  unit: string;
 };
 
 export type BlogType = {

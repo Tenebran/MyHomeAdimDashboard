@@ -26,9 +26,9 @@ export const getShopTC = (): any => (dispatch: Dispatch) => {
 };
 
 export const updateShopTC =
-  (id: string, title: string, price: string, image: string, subtitle: string) =>
+  (id: string, title: string, price: string, image: string, subtitle: string, unit: string) =>
   (dispatch: Dispatch) => {
-    getShop.updateShop(id, title, price, image, subtitle).then(res => {
+    getShop.updateShop(id, title, price, image, subtitle, unit).then(res => {
       dispatch(getShopTC());
     });
   };
@@ -40,8 +40,9 @@ export const deleteShopTC = (id: string) => (dispatch: Dispatch) => {
 };
 
 export const addShopTC =
-  (title: string, price: string, image: string, subtitle: string) => (dispatch: Dispatch) => {
-    getShop.addShop(title, price, image, subtitle).then(res => {
+  (title: string, price: string, image: string, subtitle: string, unit: string) =>
+  (dispatch: Dispatch) => {
+    getShop.addShop(title, price, image, subtitle, unit).then(res => {
       dispatch(getShopTC());
     });
   };
@@ -57,6 +58,7 @@ export type ShopType = {
   image: string;
   subtitle: string;
   id: string;
+  unit: string;
 };
 
 export type ShopInitialStateType = typeof initialState;
@@ -72,6 +74,7 @@ const initialState = {
       image: '',
       subtitle: '',
       id: '1',
+      unit: '',
     },
   ],
 };
