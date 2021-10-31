@@ -1,22 +1,36 @@
 {
   "files": {
-    "main.css": "/MyHomeAdimDashboard/static/css/main.9309990e.chunk.css",
-    "main.js": "/MyHomeAdimDashboard/static/js/main.e2abc4dc.chunk.js",
-    "main.js.map": "/MyHomeAdimDashboard/static/js/main.e2abc4dc.chunk.js.map",
-    "runtime-main.js": "/MyHomeAdimDashboard/static/js/runtime-main.4dc06a9a.js",
-    "runtime-main.js.map": "/MyHomeAdimDashboard/static/js/runtime-main.4dc06a9a.js.map",
-    "static/js/2.8a666e5b.chunk.js": "/MyHomeAdimDashboard/static/js/2.8a666e5b.chunk.js",
-    "static/js/2.8a666e5b.chunk.js.map": "/MyHomeAdimDashboard/static/js/2.8a666e5b.chunk.js.map",
-    "static/js/3.865b3e47.chunk.js": "/MyHomeAdimDashboard/static/js/3.865b3e47.chunk.js",
-    "static/js/3.865b3e47.chunk.js.map": "/MyHomeAdimDashboard/static/js/3.865b3e47.chunk.js.map",
+    "main.css": "/MyHomeAdimDashboard/static/css/main.20e8f19a.chunk.css",
+    "main.js": "/MyHomeAdimDashboard/static/js/main.1ee04647.chunk.js",
+    "main.js.map": "/MyHomeAdimDashboard/static/js/main.1ee04647.chunk.js.map",
+    "runtime-main.js": "/MyHomeAdimDashboard/static/js/runtime-main.bddf9be6.js",
+    "runtime-main.js.map": "/MyHomeAdimDashboard/static/js/runtime-main.bddf9be6.js.map",
+    "static/js/2.f431ad08.chunk.js": "/MyHomeAdimDashboard/static/js/2.f431ad08.chunk.js",
+    "static/js/2.f431ad08.chunk.js.map": "/MyHomeAdimDashboard/static/js/2.f431ad08.chunk.js.map",
+    "static/js/3.4bf26b7f.chunk.js": "/MyHomeAdimDashboard/static/js/3.4bf26b7f.chunk.js",
+    "static/js/3.4bf26b7f.chunk.js.map": "/MyHomeAdimDashboard/static/js/3.4bf26b7f.chunk.js.map",
     "index.html": "/MyHomeAdimDashboard/index.html",
-    "static/css/main.9309990e.chunk.css.map": "/MyHomeAdimDashboard/static/css/main.9309990e.chunk.css.map",
-    "static/js/2.8a666e5b.chunk.js.LICENSE.txt": "/MyHomeAdimDashboard/static/js/2.8a666e5b.chunk.js.LICENSE.txt"
+    "static/css/main.20e8f19a.chunk.css.map": "/MyHomeAdimDashboard/static/css/main.20e8f19a.chunk.css.map",
+    "static/js/2.f431ad08.chunk.js.LICENSE.txt": "/MyHomeAdimDashboard/static/js/2.f431ad08.chunk.js.LICENSE.txt",
+    "static/media/PayPal_1.295c3355.jpg": "/MyHomeAdimDashboard/static/media/PayPal_1.295c3355.jpg",
+    "static/media/PayPal_2.2b6f0ff0.jpg": "/MyHomeAdimDashboard/static/media/PayPal_2.2b6f0ff0.jpg",
+    "static/media/PayPal_3.9d885b3c.jpg": "/MyHomeAdimDashboard/static/media/PayPal_3.9d885b3c.jpg",
+    "static/media/PayPal_4.ad226718.jpg": "/MyHomeAdimDashboard/static/media/PayPal_4.ad226718.jpg",
+    "static/media/Profile_3.5332a6a5.jpg": "/MyHomeAdimDashboard/static/media/Profile_3.5332a6a5.jpg",
+    "static/media/addImage_1.c329022b.jpg": "/MyHomeAdimDashboard/static/media/addImage_1.c329022b.jpg",
+    "static/media/addImage_2.da36eb88.jpg": "/MyHomeAdimDashboard/static/media/addImage_2.da36eb88.jpg",
+    "static/media/addImage_3.4511e1ab.jpg": "/MyHomeAdimDashboard/static/media/addImage_3.4511e1ab.jpg",
+    "static/media/addImage_4.a340f939.jpg": "/MyHomeAdimDashboard/static/media/addImage_4.a340f939.jpg",
+    "static/media/profile_1.1eab28d3.jpg": "/MyHomeAdimDashboard/static/media/profile_1.1eab28d3.jpg",
+    "static/media/profile_2.3c8a0583.jpg": "/MyHomeAdimDashboard/static/media/profile_2.3c8a0583.jpg",
+    "static/media/shop_1.1cf1e0ed.jpg": "/MyHomeAdimDashboard/static/media/shop_1.1cf1e0ed.jpg",
+    "static/media/shop_2.0168ab9c.jpg": "/MyHomeAdimDashboard/static/media/shop_2.0168ab9c.jpg",
+    "static/media/shop_3.6b9dd105.jpg": "/MyHomeAdimDashboard/static/media/shop_3.6b9dd105.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4dc06a9a.js",
-    "static/js/2.8a666e5b.chunk.js",
-    "static/css/main.9309990e.chunk.css",
-    "static/js/main.e2abc4dc.chunk.js"
+    "static/js/runtime-main.bddf9be6.js",
+    "static/js/2.f431ad08.chunk.js",
+    "static/css/main.20e8f19a.chunk.css",
+    "static/js/main.1ee04647.chunk.js"
   ]
 }
