@@ -30,8 +30,13 @@ export const Manual = () => {
               </Link>
             </Typography>
             <Typography className="manual__typography">
-              <Link to={PATH.MANUAL_CONTACT} className="manual__link">
-                Manual-Contact
+              <Link to={PATH.MANUAL_PAYPAL} className="manual__link">
+                Manual-PayPal
+              </Link>
+            </Typography>{' '}
+            <Typography className="manual__typography">
+              <Link to={PATH.MANUAL_IMAGE_ADD} className="manual__link">
+                Manual-Image_Add
               </Link>
             </Typography>
           </Paper>

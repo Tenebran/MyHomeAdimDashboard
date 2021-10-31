@@ -1,8 +1,9 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import { Manual } from '../components/Manual/Manual';
+import { ManualAddImage } from '../components/Manual/ManualAddImage/ManualAddImage';
 import { ManualBlog } from '../components/Manual/ManualBlog/ManualBlog';
-import { ManualContact } from '../components/Manual/ManualContact/ManualContact';
+import { ManualPayPal } from '../components/Manual/ManualPaypal/ManualPayPal';
 import { ManualProfile } from '../components/Manual/ManualProfile/ManualProfile';
 import { ManualShop } from '../components/Manual/ManualShop/ManualShop';
 import { Blog } from '../pages/Blog/Blog';
@@ -19,7 +20,8 @@ export enum PATH {
   MANUAL_BLOG = '/manual/blog',
   MANUAL_SHOP = '/manual/shop',
   MANUAL_PROFILE = '/manual/profile',
-  MANUAL_CONTACT = '/manual/contact',
+  MANUAL_PAYPAL = '/manual/paypal',
+  MANUAL_IMAGE_ADD = '/manual/image',
 }
 
 export const Routes = () => {
@@ -34,7 +36,8 @@ export const Routes = () => {
       <Route exact path={PATH.MANUAL_BLOG} component={ManualBlog} />
       <Route exact path={PATH.MANUAL_SHOP} component={ManualShop} />
       <Route exact path={PATH.MANUAL_PROFILE} component={ManualProfile} />
-      <Route exact path={PATH.MANUAL_CONTACT} component={ManualContact} />
+      <Route exact path={PATH.MANUAL_PAYPAL} component={ManualPayPal} />
+      <Route exact path={PATH.MANUAL_IMAGE_ADD} component={ManualAddImage} />
     </Switch>
   );
 };

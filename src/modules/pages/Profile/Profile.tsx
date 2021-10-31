@@ -129,6 +129,16 @@ export const Profile = () => {
                   />
                   <TextField
                     id="standard-basic"
+                    label="Live String"
+                    variant="filled"
+                    value={profession}
+                    multiline
+                    fullWidth
+                    onChange={professionHandleChange}
+                  />
+
+                  <TextField
+                    id="standard-basic"
                     label="name"
                     variant="filled"
                     value={name}

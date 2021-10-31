@@ -1,0 +1,12 @@
+.manualPaypal {
+  &__link {
+    text-decoration: none;
+    padding: 0 15px;
+    color: #fd4343;
+  }
+
+  &__image {
+    max-width: 320px;
+    max-height: 600px;
+  }
+}
