@@ -1,7 +1,5 @@
-import profileImage from '../modules/common/image/profile-image/profile-image.jpg';
 import { Dispatch } from 'redux';
 import { getProfile } from '../api/api';
-import { profile } from 'console';
 
 const initialState: ProfileType = {
   name: '',

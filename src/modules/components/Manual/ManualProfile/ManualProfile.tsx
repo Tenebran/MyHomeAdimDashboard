@@ -39,13 +39,13 @@ export const ManualProfile = () => {
             </Typography>
             <Typography className="manual__typography">
               <div className="manualPaypal__image-wrapper">
-                <img className="manualPaypal__image" src={Profile} />
+                <img className="manualPaypal__image" alt="profile" src={Profile} />
               </div>
               <div>
-                <img className="manualPaypal__image" src={Profile_2} />
+                <img className="manualPaypal__image" alt="profile" src={Profile_2} />
               </div>
               <div>
-                <img className="manualPaypal__image" src={Profile_3} />
+                <img className="manualPaypal__image" alt="profile" src={Profile_3} />
               </div>
             </Typography>
             <Typography className="manual__typography">

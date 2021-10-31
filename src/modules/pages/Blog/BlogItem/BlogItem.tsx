@@ -48,7 +48,7 @@ export const BlogItem = (props: BlogItemProps) => {
           id={props.blog.id}
           deleteBlogHandler={props.deleteBlogHandler}
         />
-        <img src={props.blog.image} className="blog__image" />
+        <img alt="blog" src={props.blog.image} className="blog__image" />
         <div>
           <span className="blog__title">Title:</span> {props.blog.title}
         </div>

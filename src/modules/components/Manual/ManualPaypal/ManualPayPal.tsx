@@ -32,32 +32,33 @@ export const ManualPayPal = () => {
               <a
                 className="manualPaypal__link"
                 target="_blank"
+                rel="noreferrer"
                 href="https://www.paypal.com/merchantapps/appcenter/acceptpayments/paypalme?locale.x=de_AT&country.x=AT"
               >
                 <TouchAppIcon /> PayPal.me <TouchAppIcon />
               </a>
               <div>
-                <img className="manualPaypal__image" src={PayPal_1} />
+                <img className="manualPaypal__image" alt="paypal" src={PayPal_1} />
               </div>
             </Typography>
 
             <Typography className="manual__typography">
               Login
               <div>
-                <img className="manualPaypal__image" src={PayPal_3} />
+                <img className="manualPaypal__image" alt="paypal" src={PayPal_3} />
               </div>
             </Typography>
             <Typography className="manual__typography">
               And Copy Link
               <div>
-                <img className="manualPaypal__image" src={PayPal_2} />
+                <img className="manualPaypal__image" alt="paypal" src={PayPal_2} />
               </div>
             </Typography>
             <Typography className="manual__typography">
               This Link you must to insert into the field in Contact "PayPalMe" and click the save
               button
               <div>
-                <img className="manualPaypal__image" src={PayPal_4} />
+                <img className="manualPaypal__image" alt="paypal" src={PayPal_4} />
               </div>
             </Typography>
             <Typography className="manual__typography">

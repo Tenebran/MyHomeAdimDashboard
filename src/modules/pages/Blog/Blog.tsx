@@ -28,7 +28,7 @@ export const Blog = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBlogTC());
-  }, []);
+  }, [dispatch]);
 
   const imageHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setimage(event.target.value);

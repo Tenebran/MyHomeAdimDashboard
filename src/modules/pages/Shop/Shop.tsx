@@ -29,7 +29,7 @@ export const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getShopTC());
-  }, []);
+  }, [dispatch]);
 
   const imageHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setimage(event.target.value);

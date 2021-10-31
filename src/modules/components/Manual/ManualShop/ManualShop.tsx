@@ -43,12 +43,12 @@ export const ManualShop = () => {
 
             <Typography className="manual__typography">
               <div>
-                <img className="manualPaypal__image" src={shop_1} />
+                <img className="manualPaypal__image" alt="shop" src={shop_1} />
               </div>
             </Typography>
             <Typography className="manual__typography">
               <div>
-                <img className="manualPaypal__image" src={shop_2} />
+                <img className="manualPaypal__image" alt="shop" src={shop_2} />
               </div>
             </Typography>
             <Typography className="manual__typography">
@@ -62,7 +62,7 @@ export const ManualShop = () => {
                 </Link>
               </Alert>
               <div>
-                <img className="manualPaypal__image" src={shop_3} />
+                <img className="manualPaypal__image" alt="shop" src={shop_3} />
               </div>
             </Typography>
             <Typography className="manual__typography">

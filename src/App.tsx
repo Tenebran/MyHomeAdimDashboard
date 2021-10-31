@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { HashRouter } from 'react-router-dom';
 import './App.css';
 import { AdminPanel } from './modules/components/AdminPanel/AdminPanel';
-import { Header } from './modules/components/Header';
-import { Blog } from './modules/pages/Blog/Blog';
 import { Routes } from './modules/routes/Routes';
 
 function App() {

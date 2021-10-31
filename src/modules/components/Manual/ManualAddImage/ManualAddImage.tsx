@@ -28,32 +28,37 @@ export const ManualAddImage = () => {
             </Typography>
             <Typography className="manual__typography">
               Go To
-              <a className="manualPaypal__link" target="_blank" href="https://postimages.org/">
+              <a
+                className="manualPaypal__link"
+                target="_blank"
+                rel="noreferrer"
+                href="https://postimages.org/"
+              >
                 <TouchAppIcon /> postimages.org <TouchAppIcon />
               </a>
               <Typography className="manual__typography">
                 Click on "Choose image" and choose your image
                 <div>
-                  <img className="manualPaypal__image" src={addImage_1} />
+                  <img className="manualPaypal__image" alt="paypal" src={addImage_1} />
                 </div>
               </Typography>
             </Typography>
             <Typography className="manual__typography">
               Copy "Direct Link"
               <div>
-                <img className="manualPaypal__image" src={addImage_2} />
+                <img className="manualPaypal__image" alt="paypal" src={addImage_2} />
               </div>
             </Typography>
             <Typography className="manual__typography">
               And paste in the image field, then click save button
               <div>
-                <img className="manualPaypal__image" src={addImage_3} />
+                <img className="manualPaypal__image" alt="paypal" src={addImage_3} />
               </div>
             </Typography>
             <Typography className="manual__typography">
               Or you can paste any image from the Internet by copying the link to the image
               <div>
-                <img className="manualPaypal__image" src={addImage_4} />
+                <img className="manualPaypal__image" alt="paypal" src={addImage_4} />
               </div>
             </Typography>
             <Typography className="manual__typography">

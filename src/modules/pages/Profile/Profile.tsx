@@ -1,6 +1,5 @@
 import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -73,7 +72,7 @@ export const Profile = () => {
 
       <Grid item className="blog" style={{ zIndex: 2000 }}>
         <Paper elevation={5} className="blog__paper" style={{ zIndex: 2000 }}>
-          <img src={profile.image} className="blog__image" />
+          <img alt="blog" src={profile.image} className="blog__image" />
           <div>
             <span className="blog__title">Live String: </span>
             {profile.profession}

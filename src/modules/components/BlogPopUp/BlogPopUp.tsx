@@ -8,10 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import './BlogPopUp.scss';
 
 export default function AlertDialog(props: PopUpPropsType) {
-  const handleClickOpen = () => {
-    props.setOpen(true);
-  };
-
   const handleClose = () => {
     props.deleteBlogHandler(props.id);
     props.setOpen(false);

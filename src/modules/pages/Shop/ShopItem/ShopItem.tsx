@@ -58,7 +58,7 @@ export const ShopItem = (props: BlogItemProps) => {
           id={props.shop.id}
           deleteBlogHandler={props.deleteShopHandler}
         />
-        <img src={props.shop.image} className="blog__image" />
+        <img src={props.shop.image} className="blog__image" alt="shop" />
         <div>
           <span className="blog__title">Title:</span> {props.shop.title}
         </div>
