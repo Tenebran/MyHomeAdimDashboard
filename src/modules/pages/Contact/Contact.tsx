@@ -20,6 +20,7 @@ export const Contact = () => {
   const [mobile, setMobile] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [paypalme, setPaypalme] = useState<string>('');
+  const [text, setText] = useState<string>('');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -47,6 +48,10 @@ export const Contact = () => {
     setPaypalme(event.target.value);
   };
 
+  const textHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value);
+  };
+
   const openEditHandler = () => {
     if (!edit) {
       setedit(true);
@@ -56,13 +61,14 @@ export const Contact = () => {
       setMobile(contact.mobile);
       setEmail(contact.email);
       setPaypalme(contact.paypalme);
+      setText(contact.text);
     } else {
       setedit(false);
     }
   };
 
   const onUpdateHandler = () => {
-    dispatch(updateAdress(name, street, city, mobile, email, paypalme));
+    dispatch(updateAdress(name, street, city, mobile, email, paypalme, text));
     setedit(false);
   };
 
@@ -93,6 +99,12 @@ export const Contact = () => {
               <span>
                 <span className="blog__title">Email: </span>
                 {contact.email}
+              </span>
+            </div>{' '}
+            <div className="wrapper__info">
+              <span>
+                <span className="blog__title">Text: </span>
+                {contact.text}
               </span>
             </div>
             <div className="wrapper__info">
@@ -169,6 +181,15 @@ export const Contact = () => {
                     fullWidth
                     value={paypalme}
                     onChange={paypalmeHandleChange}
+                  />
+                  <TextField
+                    id="standard-basic"
+                    label="Text"
+                    variant="filled"
+                    multiline
+                    fullWidth
+                    value={text}
+                    onChange={textHandleChange}
                   />
                 </div>
                 <div className="blog__button-wrapper">

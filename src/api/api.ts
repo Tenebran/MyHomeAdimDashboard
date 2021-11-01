@@ -30,9 +30,10 @@ export const getAdress = {
     city: string,
     mobile: string,
     email: string,
-    paypalme: string
+    paypalme: string,
+    text: string
   ) {
-    return instance.put('/adress/1/', { name, street, city, mobile, email, paypalme });
+    return instance.put('/adress/1/', { name, street, city, mobile, email, paypalme, text });
   },
 };
 
@@ -104,6 +105,7 @@ export type adressType = {
   mobile: string;
   email: string;
   paypalme: string;
+  text: string;
 };
 
 export type ShopType = {

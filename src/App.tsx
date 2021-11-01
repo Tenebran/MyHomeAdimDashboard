@@ -11,7 +11,6 @@ function App() {
   const onClickPasswordLogin = (inputPassword: string) => {
     if (password === inputPassword) {
       setAdminPanel(true);
-      console.log('im Hier');
     } else {
       setAdminPanel(false);
     }
