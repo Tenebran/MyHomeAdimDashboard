@@ -3,13 +3,15 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import LoadingButton from '@mui/lab/LoadingButton';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import SaveIcon from '@mui/icons-material/Save';
 import { AppRootStateType } from '../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { adressType } from '../../../api/api';
 import { getFooterTC, updateAdress } from '../../../store/footer-reduser';
+import { ContactInfo } from './ContactInfo';
+import { ContactInfoEdit } from './ContactInfoEdit';
 
 export const Contact = () => {
   const [edit, setedit] = useState<boolean>(false);
@@ -27,30 +29,54 @@ export const Contact = () => {
     dispatch(getFooterTC());
   }, [dispatch]);
 
-  const nameHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  };
+  const nameHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setName(event.target.value);
+    },
+    [setName]
+  );
 
-  const streetHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setStreet(event.target.value);
-  };
-  const cityMeHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCity(event.target.value);
-  };
-  const mobileHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMobile(event.target.value);
-  };
-  const emailHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+  const streetHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setStreet(event.target.value);
+    },
+    [setStreet]
+  );
 
-  const paypalmeHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPaypalme(event.target.value);
-  };
+  const cityMeHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setCity(event.target.value);
+    },
+    [setCity]
+  );
 
-  const textHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-  };
+  const mobileHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setMobile(event.target.value);
+    },
+    [setMobile]
+  );
+
+  const emailHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(event.target.value);
+    },
+    [setEmail]
+  );
+
+  const paypalmeHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setPaypalme(event.target.value);
+    },
+    [setPaypalme]
+  );
+
+  const textHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setText(event.target.value);
+    },
+    [setText]
+  );
 
   const openEditHandler = () => {
     if (!edit) {
@@ -66,7 +92,6 @@ export const Contact = () => {
       setedit(false);
     }
   };
-
   const onUpdateHandler = () => {
     dispatch(updateAdress(name, street, city, mobile, email, paypalme, text));
     setedit(false);
@@ -78,42 +103,15 @@ export const Contact = () => {
 
       <Grid item className="blog">
         <Paper elevation={5} className="blog__paper">
-          <span className="blog__title">Name: </span>
-          {contact.name}
-          <div>
-            <span className="blog__title">Street: </span>
-            {contact.street}
-          </div>
-          <div>
-            <span className="blog__title">City: </span>
-            {contact.city}
-          </div>
-          <div>
-            <div className="wrapper__info">
-              <span>
-                <span className="blog__title">Tel: </span>
-                {contact.mobile}
-              </span>
-            </div>
-            <div className="wrapper__info">
-              <span>
-                <span className="blog__title">Email: </span>
-                {contact.email}
-              </span>
-            </div>{' '}
-            <div className="wrapper__info">
-              <span>
-                <span className="blog__title">Text: </span>
-                {contact.text}
-              </span>
-            </div>
-            <div className="wrapper__info">
-              <span>
-                <span className="blog__title">PayPalMe: </span>
-                {contact.paypalme}
-              </span>
-            </div>
-          </div>
+          <ContactInfo
+            name={contact.name}
+            city={contact.city}
+            street={contact.street}
+            mobile={contact.mobile}
+            email={contact.email}
+            text={contact.text}
+            paypalme={contact.paypalme}
+          />
           <div className="blog__button_edit">
             {!edit ? (
               <div className="blog__button-wrapper">
@@ -127,71 +125,23 @@ export const Contact = () => {
 
             {edit ? (
               <>
-                <div className="blog__editplace">
-                  <TextField
-                    id="standard-basic"
-                    label="Name"
-                    variant="filled"
-                    value={name}
-                    multiline
-                    fullWidth
-                    onChange={nameHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="Street"
-                    variant="filled"
-                    value={street}
-                    multiline
-                    fullWidth
-                    onChange={streetHandleChange}
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="City"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={city}
-                    onChange={cityMeHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="Tel"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={mobile}
-                    onChange={mobileHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="Email"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={email}
-                    onChange={emailHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="PayPalMe"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={paypalme}
-                    onChange={paypalmeHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="Text"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={text}
-                    onChange={textHandleChange}
-                  />
-                </div>
+                <ContactInfoEdit
+                  name={name}
+                  nameHandleChange={nameHandleChange}
+                  street={street}
+                  streetHandleChange={streetHandleChange}
+                  city={city}
+                  cityMeHandleChange={cityMeHandleChange}
+                  mobile={mobile}
+                  mobileHandleChange={mobileHandleChange}
+                  email={email}
+                  emailHandleChange={emailHandleChange}
+                  paypalme={paypalme}
+                  paypalmeHandleChange={paypalmeHandleChange}
+                  text={text}
+                  textHandleChange={textHandleChange}
+                />
+
                 <div className="blog__button-wrapper">
                   <Button variant="contained" color="secondary" onClick={openEditHandler}>
                     Cancel
