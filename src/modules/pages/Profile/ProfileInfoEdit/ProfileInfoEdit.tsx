@@ -1,7 +1,7 @@
 import TextField from '@material-ui/core/TextField';
 import React from 'react';
 
-export const ProfileInfoEdit = (props: ProfileInfoEdit) => {
+export const ProfileInfoEdit = (props: ProfileInfoEditPropsType) => {
   return (
     <div className="blog__editplace">
       <TextField
@@ -63,7 +63,7 @@ export const ProfileInfoEdit = (props: ProfileInfoEdit) => {
   );
 };
 
-type ProfileInfoEdit = {
+type ProfileInfoEditPropsType = {
   video: string;
   aboutMe: string;
   videoHandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

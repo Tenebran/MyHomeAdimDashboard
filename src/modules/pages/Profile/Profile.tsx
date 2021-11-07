@@ -1,4 +1,3 @@
-import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -9,7 +8,6 @@ import SaveIcon from '@mui/icons-material/Save';
 import { AppRootStateType } from '../../../store/store';
 import { getProfileDataTC, ProfileType, updateProfileTC } from '../../../store/profile-reducers';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactPlayer from 'react-player';
 import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 import { ProfileInfoEdit } from './ProfileInfoEdit/ProfileInfoEdit';
 
