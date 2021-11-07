@@ -1,6 +1,6 @@
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { AppRootStateType } from '../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
@@ -17,6 +17,7 @@ import {
   ShopType,
   updateShopTC,
 } from '../../../store/shop-reducers';
+import { ShopAddNewItem } from './ShopAddNewItem/ShopAddNewItem';
 
 export const Shop = () => {
   const shop = useSelector<AppRootStateType, Array<ShopType>>(state => state.shop.shop);
@@ -31,23 +32,40 @@ export const Shop = () => {
     dispatch(getShopTC());
   }, [dispatch]);
 
-  const imageHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setimage(event.target.value);
-  };
+  const imageHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setimage(event.target.value);
+    },
+    [setimage]
+  );
 
-  const subTitleHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setsubtitle(event.target.value);
-  };
-  const titleHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    settitle(event.target.value);
-  };
+  const subTitleHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setsubtitle(event.target.value);
+    },
+    [setsubtitle]
+  );
 
-  const priceHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setprice(event.target.value);
-  };
-  const unitHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUnit(event.target.value);
-  };
+  const titleHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      settitle(event.target.value);
+    },
+    [settitle]
+  );
+
+  const priceHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setprice(event.target.value);
+    },
+    [setprice]
+  );
+
+  const unitHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setUnit(event.target.value);
+    },
+    [setUnit]
+  );
 
   const addBlogCancel = () => {
     setimage('');
@@ -87,53 +105,19 @@ export const Shop = () => {
             <Grid item className="blog">
               <Paper elevation={5} className="blog__paper">
                 <h1>Add New Item</h1>
-                <div className="blog__editplace">
-                  <TextField
-                    id="standard-basic"
-                    label="image"
-                    variant="filled"
-                    value={image}
-                    multiline
-                    fullWidth
-                    onChange={imageHandleChange}
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="title"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={title}
-                    onChange={titleHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="subtitle"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={subtitle}
-                    onChange={subTitleHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="price"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={price}
-                    onChange={priceHandleChange}
-                  />
-                  <TextField
-                    id="standard-basic"
-                    label="unit"
-                    variant="filled"
-                    multiline
-                    fullWidth
-                    value={unit}
-                    onChange={unitHandleChange}
-                  />
-                </div>
+                <ShopAddNewItem
+                  image={image}
+                  imageHandleChange={imageHandleChange}
+                  title={title}
+                  titleHandleChange={titleHandleChange}
+                  subtitle={subtitle}
+                  subTitleHandleChange={subTitleHandleChange}
+                  price={price}
+                  priceHandleChange={priceHandleChange}
+                  unit={unit}
+                  unitHandleChange={unitHandleChange}
+                />
+
                 <div className="blog__button-wrapper">
                   <Button variant="contained" color="secondary" onClick={addBlogCancel}>
                     Cancel

@@ -1,12 +1,13 @@
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import SaveIcon from '@mui/icons-material/Save';
 import LoadingButton from '@mui/lab/LoadingButton';
 import BlogPopUp from '../../../components/BlogPopUp/BlogPopUp';
 import { ShopType } from '../../../../store/shop-reducers';
+import { ShopItemInfo } from './ShopItemInfo/ShopItemInfo';
+import { ShopItemEdit } from './ShopItemEdit/ShopItemEdit';
 
 export const ShopItem = (props: BlogItemProps) => {
   const [edit, setedit] = useState<boolean>(false);
@@ -25,24 +26,40 @@ export const ShopItem = (props: BlogItemProps) => {
     }
   };
 
-  const imageHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setimage(event.target.value);
-  };
+  const imageHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setimage(event.target.value);
+    },
+    [setimage]
+  );
 
-  const subTitleHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setsubtitle(event.target.value);
-  };
-  const titleHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    settitle(event.target.value);
-  };
+  const subTitleHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setsubtitle(event.target.value);
+    },
+    [setsubtitle]
+  );
 
-  const priceHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setprice(event.target.value);
-  };
+  const titleHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      settitle(event.target.value);
+    },
+    [settitle]
+  );
 
-  const unitHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUnit(event.target.value);
-  };
+  const priceHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setprice(event.target.value);
+    },
+    [setprice]
+  );
+
+  const unitHandleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setUnit(event.target.value);
+    },
+    [setUnit]
+  );
 
   const onUpdateHandler = () => {
     props.updateShopHandler(props.shop.id, title, price, image, subtitle, unit);
@@ -58,25 +75,14 @@ export const ShopItem = (props: BlogItemProps) => {
           id={props.shop.id}
           deleteBlogHandler={props.deleteShopHandler}
         />
-        <img src={props.shop.image} className="blog__image" alt="shop" />
-        <div>
-          <span className="blog__title">Title:</span> {props.shop.title}
-        </div>
-        <div>
-          <span>
-            <span className="blog__title">Subtitle:</span> {props.shop.subtitle}
-          </span>
-        </div>
-        <div>
-          <span>
-            <span className="blog__title">Price:</span> {props.shop.price}
-          </span>
-        </div>
-        <div>
-          <span>
-            <span className="blog__title">Per Unit:</span> {props.shop.unit}
-          </span>
-        </div>
+        <ShopItemInfo
+          image={props.shop.image}
+          title={props.shop.title}
+          subtitle={props.shop.subtitle}
+          price={props.shop.price}
+          unit={props.shop.unit}
+        />
+
         <div className="blog__button_edit">
           {!edit ? (
             <div className="blog__button-wrapper">
@@ -93,53 +99,19 @@ export const ShopItem = (props: BlogItemProps) => {
 
           {edit ? (
             <>
-              <div className="blog__editplace">
-                <TextField
-                  id="standard-basic"
-                  label="image"
-                  variant="filled"
-                  value={image}
-                  multiline
-                  fullWidth
-                  onChange={imageHandleChange}
-                />
-                <TextField
-                  id="standard-basic"
-                  label="price"
-                  variant="filled"
-                  value={price}
-                  multiline
-                  fullWidth
-                  onChange={priceHandleChange}
-                />
-                <TextField
-                  id="outlined-multiline-static"
-                  label="title"
-                  variant="filled"
-                  multiline
-                  fullWidth
-                  value={title}
-                  onChange={titleHandleChange}
-                />
-                <TextField
-                  id="standard-basic"
-                  label="subtitle"
-                  variant="filled"
-                  multiline
-                  fullWidth
-                  value={subtitle}
-                  onChange={subTitleHandleChange}
-                />
-                <TextField
-                  id="standard-basic"
-                  label="unit"
-                  variant="filled"
-                  multiline
-                  fullWidth
-                  value={unit}
-                  onChange={unitHandleChange}
-                />
-              </div>
+              <ShopItemEdit
+                image={image}
+                imageHandleChange={imageHandleChange}
+                price={price}
+                priceHandleChange={priceHandleChange}
+                title={title}
+                titleHandleChange={titleHandleChange}
+                subtitle={subtitle}
+                subTitleHandleChange={subTitleHandleChange}
+                unit={unit}
+                unitHandleChange={unitHandleChange}
+              />
+
               <div className="blog__button-wrapper">
                 <Button variant="contained" color="secondary" onClick={openEditHandler}>
                   Cancel
