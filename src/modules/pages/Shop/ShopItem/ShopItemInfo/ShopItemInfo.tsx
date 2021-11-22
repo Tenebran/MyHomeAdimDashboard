@@ -1,10 +1,11 @@
 import React from 'react';
+import noImage from '../../../../common/image/app/no-image.png';
 
 export const ShopItemInfo = (props: ShopItemInfoPropsType) => {
   return (
     <>
       {' '}
-      <img src={props.image} className="blog__image" alt="shop" />
+      <img src={props.image ? props.image : noImage} className="blog__image" alt="shop" />
       <div>
         <span className="blog__title">Title:</span> {props.title}
       </div>
