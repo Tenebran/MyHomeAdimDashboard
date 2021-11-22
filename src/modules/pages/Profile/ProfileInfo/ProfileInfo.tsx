@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import noVideo from '../../../common/image/app/no-video.jpg';
+import noImage from '../../../common/image/app/no-image.png';
 
 export const ProfileInfo = (props: ProfileInfoPropsType) => {
   return (
     <>
-      <img alt="blog" src={props.image} className="blog__image" />
+      <img alt="blog" src={props.image ? props.image : noImage} className="blog__image" />
       <div>
         <span className="blog__title">Live String: </span>
         {props.profession}
@@ -29,9 +31,15 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
         <div className="wrapper__info">
           <span>
             <span className="blog__title">Video: </span>
-            <div className="blog__video-wrapper">
-              <ReactPlayer url={props.video} />
-            </div>
+            {props.video ? (
+              <div className="blog__video-wrapper">
+                <ReactPlayer url={props.video} />
+              </div>
+            ) : (
+              <div className="blog__video-wrapper">
+                <img alt="blog" src={noVideo} className="blog__image" />{' '}
+              </div>
+            )}
           </span>
         </div>
       </div>
