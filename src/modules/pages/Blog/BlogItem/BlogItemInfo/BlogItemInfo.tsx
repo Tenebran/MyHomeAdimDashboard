@@ -10,7 +10,8 @@ export const BlogItemInfo = (props: BlogItemInfoPropsType) => {
       </div>
       <div>
         <span>
-          <span className="blog__title">Subtitle:</span> {props.subtitle}
+          <span className="blog__title">Subtitle:</span>
+          <div className="blog__text">{props.subtitle}</div>
         </span>
       </div>
     </>

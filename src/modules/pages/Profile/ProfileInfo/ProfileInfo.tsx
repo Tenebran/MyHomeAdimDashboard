@@ -25,7 +25,7 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
         <div className="wrapper__info">
           <span>
             <span className="blog__title">AboutMe: </span>
-            {props.aboutme}
+            <div className="blog__text">{props.aboutme}</div>
           </span>
         </div>
         <div className="wrapper__info">

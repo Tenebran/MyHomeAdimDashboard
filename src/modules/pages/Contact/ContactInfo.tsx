@@ -29,7 +29,7 @@ export const ContactInfo = (props: ContactInfoPropsType) => {
         <div className="wrapper__info">
           <span>
             <span className="blog__title">Text: </span>
-            {props.text}
+            <div className="blog__text">{props.text}</div>
           </span>
         </div>
         <div className="wrapper__info">

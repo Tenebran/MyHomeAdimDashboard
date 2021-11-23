@@ -20,6 +20,10 @@
     color: rgb(247, 27, 27);
   }
 
+  &__text {
+    white-space: pre-wrap;
+  }
+
   &__button {
     &_edit {
       margin: 10px 0 0 0;
